@@ -1,7 +1,7 @@
 dim ter$(4)
-shell "rm *.csv"
-print "Grabing latest data from server..."
-shell "wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+'shell "rm *.csv"
+'print "Grabing latest data from server..."
+'shell "wget https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
 print "Extracting Illinois..."
 shell "cat us-counties.csv | grep Illinois > illinois.csv"
 print "Extracting Illinois, Cook County..."
@@ -39,7 +39,7 @@ ck=ca
     x = cf
     loop until eof (2)
    close #2
-    if cf<>0 then fac=cf/1000
+    if cf<>0 then fac=80
 'print ck
 'sleep
  open ter$(i) for input as #1
@@ -60,8 +60,8 @@ ut=0
  ' xx=0
 'if fac<>0 and xt>1 then
 'print xt,fac:sleep
-    for graph=1 to xt step fac
-       
+    ct=int(fac*(xt/cf))
+    for graph=1 to ct   
       grph$=grph$+"X"
     next graph
 ' print xt
